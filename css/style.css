@@ -1,0 +1,346 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 80px;
+    max-width: 1100px;
+    width: 95%;
+    margin: 50px auto;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.btn {
+    height: 35px;
+    padding: 0 15px;
+    border: none;
+    transition: opasity 0.4s;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.btn-red {
+    background: red;
+    color: white;
+}
+
+.btn-blue {
+    background: blue;
+    color: cornsilk;
+}
+
+.input {
+    width: 210px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 3px;
+}
+
+.input::placeholder {
+    color: red;
+}
+
+.textarea {
+    width: 210px;
+    resize: none;
+}
+
+/* header start */
+
+.header, .nav, .menu {
+    display: flex;
+}
+
+.header {
+    justify-content: space-around;
+    min-height: 80px;
+    background: black;
+    align-items: center;
+}
+
+header {
+    background: blue;
+}
+
+.menu>li {
+    position: relative;
+}
+
+.menu>li>ol {
+    display: none;
+    position: absolute;
+}
+
+.menu>li:hover>ol {
+    display: block;
+}
+
+.menu a {
+    display: block;
+    width: 100px;
+    height: 35px;
+    background: rgb(252, 41, 252);
+    color: rgb(39, 15, 38);
+    padding: 5px;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.menu a:hover {
+    background: #e628e6;
+}
+
+.form-search {
+    display: flex;
+    grid-gap: 5px;
+}
+
+.form-search__search {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.form-search__search::placeholder {
+    color: pink;
+}
+
+/* header end */
+
+.login-icon {
+    /* position: relative; позиционируется относително документа */
+    /* position: fixed;относительно окна браузера */
+    position: sticky;
+    top: 10px;
+    left: 10px;
+    height: 40px;
+    color: white;
+    background: transparent;
+    border: none;
+    overflow: hidden;
+}
+
+.login-icon::before {
+    position: absolute;
+    content: "";
+    top: 13px;
+    left: -13px;
+    border: 30px solid transparent;
+    border-top: 30px solid blue;
+    z-index: -1;
+}
+
+.login-icon::after {
+    position: absolute;
+    content: "$";
+    top: 0;
+    left: 0;
+    animation: anim-login 2s infinite;
+}
+
+@keyframes anim-login {
+    0% {
+        transform: translate( -20px, -20px);
+    }
+    50% {
+        transform: translate(12px, 25px);
+    }
+    100% {
+        transform: translate(50px, -10px) rotate(900deg);
+    }
+}
+
+/* article start */
+
+.article__img {
+    width: 250px;
+    float: left;
+    margin: 20px 20px 20px 0;
+}
+
+.bold~i {
+    color: blue;
+}
+
+.bold+i {
+    color: red;
+}
+
+/* article end */
+
+/* features start */
+
+.features {
+    min-height: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.features>div {
+    width: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 15px;
+}
+
+.features__icon {
+    font-size: 35px;
+}
+
+/* features end */
+
+/* main start */
+
+.main {
+    display: grid;
+    grid-template-areas: 'a b c' 'e e f';
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.main__card-1 {
+    grid-area: a;
+}
+
+.main__card-2 {
+    grid-area: b;
+}
+
+.main__card-3 {
+    grid-area: c;
+}
+
+.main__card-4 {
+    grid-area: e;
+}
+
+.main__card-5 {
+    grid-area: f;
+}
+
+.main__icon {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.main__title {
+    margin-bottom: 20px;
+}
+
+.main__info {
+    margin-bottom: 15px;
+}
+
+@media (max-width:768px) {
+    .main {
+        grid-template-areas: 'a b' 'c f' 'e e';
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:540px) {
+    .main {
+        grid-template-areas: 'a' 'b' 'c' 'f' 'e';
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: 1fr;
+    }
+}
+
+/* main end */
+
+/* product start */
+
+.products-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    border-collapse: collapse;
+}
+
+.products th, .products td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.products th {
+    text-align: left;
+}
+
+.products td {
+    text-align: right;
+}
+
+.products tr:hover {
+    background: blanchedalmond;
+}
+
+/* product end */
+
+/* form start */
+
+.form-test, .form-test__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-test {
+    grid-gap: 30px;
+}
+
+.form-test__info {
+    grid-gap: 10px;
+}
+
+/* form end */
+.visual1{
+    background-image: url("../images/depositphotos_189198696-stock-photo-abstract-polygonal-geometric-background-blue.jpg");
+}
+.visual2{
+    background-image: url("../images/Swirling-Stars-and-Space-Video-Zoom-Virtual-Background-1.jpg");
+}
+.visual1,.visual2{
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+}
